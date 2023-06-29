@@ -5,7 +5,18 @@
 	<script>
 		// TODO: create a handler
     window.addEventListener("load", function(){
-        // TODO: register the handler
+		alert("Loading")
+		let button = document.getElementById("update");
+		button.addEventListener("click", function(){
+        alert("Button Clicked")
+			
+		let userInput = document.querySelector("input[name=q]");
+		alert("username: " + userInput.value);
+			
+		let userSearchEngine = document.querySelector("input[name=engine]:checked");
+		alert("search engine: " + userSearchEngine.value);
+	})
+
     });
 	</script>
 </head>
@@ -18,7 +29,8 @@
 		<label><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label>
 		<label><input type="radio" name="engine" value="bing" />Bing</label>
 		<label><input type="radio" name="engine" value="ask" />Ask</label>
-		<button>Go!</button>
+		<button id="update">Go</button>
+
 	</form>
 
 </body>
