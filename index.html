@@ -4,31 +4,42 @@
 	<meta charset="utf-8">
 	<script>
 		// TODO: create a handler
-    window.addEventListener("load", function(){
-		alert("Loading")
-		let button = document.getElementById("update");
-		button.addEventListener("click", function(){
-        alert("Button Clicked")
-			
-		let userInput = document.querySelector("input[name=q]");
-		alert("username: " + userInput.value);
-			
-		let userSearchEngine = document.querySelector("input[name=engine]:checked");
-		alert("search engine: " + userSearchEngine.value);
-	})
+		window.addEventListener("load", function () {
+			alert("Window")
+			let button = document.getElementById("update");
+			button.addEventListener("click", function () {
+				alert("entered Button")
+				let userInput = document.getElementById("q");
+				alert("user entered" + userInput.value)
+				let userSelectEngine = document.querySelector("input[name=engine]:checked")
+				alert("search engine" + userSelectEngine.value)
 
-    });
+				let actions = {
+           "google": "https://www.google.com/search",
+            "duckDuckGo":"https://duckduckgo.com/",
+            "bing":"https://www.bing.com/search" ,
+            "ask":"https://www.ask.com/web", 
+           }
+		   alert("Actions of"+actions[userSelectEngine.value]+"?q="+userInput.value)
+		   actions[userSelectEngine.value]
+
+		   let form=document.getElementById("searchForm")
+		   form.setAttribute("action",actions[userSelectEngine.value]+"?q="+userInput.value)
+		   
+
+			})
+		});
 	</script>
 </head>
 
 <body>
 
 	<form id="searchForm">
-		<label><input type="text" name="q" /></label>
-		<label><input type="radio" name="engine" value="google" />Google</label>
-		<label><input type="radio" name="engine" value="duckDuckGo" />DuckDuckGo</label>
-		<label><input type="radio" name="engine" value="bing" />Bing</label>
-		<label><input type="radio" name="engine" value="ask" />Ask</label>
+		<label><input type="text" id="q" name="q"></label>
+		<label>Google<input type="radio" name="engine" value="google" /></label>
+		<label>DuckDuckGo<input type="radio" name="engine" value="duckDuckGo" /></label>
+		<label>Bing<input type="radio" name="engine" value="bing" /></label>
+		<label>Ask<input type="radio" name="engine" value="ask" /></label>
 		<button id="update">Go</button>
 
 	</form>
